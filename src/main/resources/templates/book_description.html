@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="My Library">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Egor Kudryashov">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Book Description</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js"></script>
+</head>
+<body>
+<header>
+    <a class="home-button" href="index.html">Home</a>
+    <a class="user" href="#">Егор</a>
+    <div class="search-line">
+        <form action="book_list.html" method="get">
+            <input name="book_name" placeholder="🔎 Искать книгу..." type="search">
+        </form>
+    </div>
+    <article class="dropdown">
+        <button id="genres-button">Жанры</button>
+    </article>
+</header>
+<main>
+    <div class="white-bg">
+        <div class="description-card" id="description-card"></div>
+    </div>
+</main>
+<footer>
+    <aside class="white-bg">
+        <h4 class="footer-title" id="footer-head">Как связаться с автором:</h4>
+    </aside>
+</footer>
+<script>
+    get_genres();
+    get_contacts();
+    get_book_description();
+    active_menu();
+</script>
+</body>
+</html>

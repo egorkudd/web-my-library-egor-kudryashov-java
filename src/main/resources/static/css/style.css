@@ -1,0 +1,395 @@
+/*================== Header ========================*/
+
+header {
+    height: 15vh;
+    vertical-align: center;
+}
+
+@media screen and (max-height: 500px) {
+    header button {
+        height: 45px;
+    }
+}
+
+.home-button {
+    position: absolute;
+    top: 1%;
+    left: 7%;
+    background-color: #eee;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 20px 15px 20px;
+    font-size: 100%;
+    cursor: pointer;
+}
+
+.home-button:hover {
+    background-color: #ccc;
+}
+
+.user {
+    position: absolute;
+    top: 1%;
+    left: 20%;
+    background-color: #eee;
+    border-radius: 5px;
+    padding: 15px 20px 15px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+
+.user::before {
+    content: "Пользователь: ";
+    font-weight: normal;
+}
+
+.search-line {
+    position: absolute;
+    top: 1%;
+    left: 55%;
+}
+
+.search-line input {
+    border: none;
+    border-radius: 5px;
+    width: 23vw;
+    padding: 16px 10px 16px 10px;
+    background-color: #eee;
+}
+
+.dropdown {
+    position: absolute;
+    top: 1%;
+    left: 83.5%;
+    z-index: 9999;
+}
+
+.dropdown:hover .dropdown__options {
+    display: block;
+    overflow-y: scroll;
+    height: 60vh;
+}
+
+button {
+    border: none;
+    border-radius: 5px;
+    padding: 2.8vh 2.5vw;
+    height: 8vh;
+    font-size: 100%;
+    cursor: pointer;
+    background-color: #eee;
+}
+
+button:hover {
+    background-color: #ccc;
+}
+
+.dropdown__options {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px;
+}
+
+.dropdown__options a {
+    display: block;
+    color: #000;
+    text-decoration: none;
+    padding: 20px 40px;
+}
+
+.dropdown__options a:hover {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+.dropdown__options a.active {
+    font-weight: bold;
+}
+
+/*==================== main ===========================*/
+
+body {
+    background-image: url("../img/bg9.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    min-width: 600px;
+    overflow-x: auto;
+
+}
+
+.welcome-phrase {
+    width: 90%;
+    height: 80vh;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 15vh;
+    font-size: 100px;
+    font-weight: bold;
+    text-shadow: 3px 3px 4px #fff;
+}
+
+.card {
+    width: 225px;
+    min-height: 350px;
+    box-shadow: 1px 2px 7px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    transition: 0.2s;
+    position: relative;
+}
+
+.card:hover {
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.7);
+    transform: scale(1.1);
+}
+
+.card__top {
+    flex: 0 0 220px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card__top__image {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.card__top__image > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: 0.2s;
+}
+
+.card__bottom {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    padding: 10px;
+}
+
+.book-info {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.book-info__genre {
+    font-weight: bold;
+    font-size: 19px;
+    color: black;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.book-info__genre::after {
+    content: "Жанр книги";
+    font-weight: normal;
+    font-size: 13px;
+    color: #888;
+}
+
+.book-info__author-mark {
+    font-size: 17px;
+    color: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.book-info__author-mark::after {
+    content: "Оценка автора";
+    font-weight: normal;
+    font-size: 13px;
+    color: #888;
+}
+
+.card__bottom__book-name {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 150%;
+    color: black;
+}
+
+.card__bottom__book-name:hover {
+    color: orange;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 225px);
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    width: 90%;
+    justify-content: center;
+    justify-items: center;
+    column-gap: 30px;
+    row-gap: 40px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.list-title {
+    font-size: 50px;
+    font-weight: bold;
+    font-family: monospace;
+    text-decoration: underline 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    margin: auto;
+}
+
+.white-bg {
+    width: 89%;
+    background-color: white;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.description-card {
+    display: flex;
+}
+
+.description-card img {
+    width: 30%;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 900px) {
+    .description-card img {
+        width: 230px;
+        height: 365px;
+    }
+}
+
+
+.desc-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.desc-container__desc-author {
+    font-size: 20px;
+    color: gray;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+.desc-container__desc-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.desc-container__desc-text {
+    font-size: 17px;
+    font-weight: bold;
+    font-style: italic;
+    color: #444;
+    margin: 0 2% 0 0;
+    border: inset;
+    border-width: 6px;
+    border-color: lightgray;
+    /*  border-radius: 10px;*/
+    padding: 10px 10px 10px 10px;
+}
+
+.same-books {
+    border: inset;
+    border-color: lightgray;
+    border-width: 6px;
+    padding: 0px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 1% 1% 1% 0;
+    min-width: 18%;
+}
+
+.same-books__title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.same-books__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.same-books__item {
+    padding: 5px;
+    margin: 5px;
+    border: solid;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    text-decoration: none;
+    color: black;
+}
+
+.same-books__item:hover {
+    background-color: #ddd;
+}
+
+@media screen and (max-width: 900px) {
+    .same-books {
+        display: none;
+    }
+}
+
+/*============================== Footer ========================*/
+
+.footer-title {
+    margin: 5px 0 0 0;
+    padding: 0 0 0 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.markers {
+    padding: 0 0 10px 40px;
+    margin: 5px 0 0 15px;
+    font-size: 16px;
+    list-style: none;
+}
+
+#tg {
+    list-style-image: url(../img/tg.png);
+}
+
+#in {
+    list-style-image: url(../img/in.png);
+}
+
+#vk {
+    list-style-image: url(../img/vk.png);
+}
+
+#gm {
+    list-style-image: url(../img/gm.png);
+}
+
+.time-place {
+    padding-right: 10px;
+    padding-bottom: 10px;
+    text-align: right;
+}
+
