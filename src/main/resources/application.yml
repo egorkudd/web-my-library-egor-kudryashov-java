@@ -7,11 +7,18 @@ server:
 #    username: postgres
 #    password: testtest
 #    driver-class-name: org.postgresql.Driver
-#
-#  jpa:
-#    properties:
-#      hibernate:
-#        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+spring:
+  datasource:
+    url: jdbc:postgresql://dpg-coa3npfsc6pc739ao9fg-a.frankfurt-postgres.render.com/my_library
+    username: my_library_user
+    password: 4IzPe9yU8GHRRNl8rfBUsrjnCvlMUCYY
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 
 logging:
   level:

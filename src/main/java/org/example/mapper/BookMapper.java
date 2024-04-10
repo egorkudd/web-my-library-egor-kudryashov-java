@@ -22,7 +22,7 @@ public class BookMapper {
         );
     }
 
-    public BookDescDto toSameBookSetDto(Book book) {
+    public BookDescDto toBookDescDto(Book book) {
         return new BookDescDto(
                 book.getId(),
                 book.getImageSource(),

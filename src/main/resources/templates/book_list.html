@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta name="description" content="My Library">
@@ -12,31 +12,60 @@
 </head>
 <body>
 <header>
-    <a class="home-button" href="index.html">Home</a>
+    <a class="home-button" href="/">Home</a>
     <a class="user" href="#">Егор</a>
     <div class="search-line">
-        <form action="book_list.html" method="get">
-            <input name="book_name" placeholder="🔎 Искать книгу..." type="search">
+        <form action="/book_list" method="get">
+            <input name="wordLine" placeholder="🔎 Искать книгу..." type="search">
         </form>
     </div>
     <article class="dropdown">
         <button id="genres-button">Жанры</button>
+        <nav class="dropdown__options">
+            <a th:each="genre : ${genreList}"
+               th:id="${genre.getId()}"
+               th:href="@{/book_list(genre=${genre.getId()})}"
+               th:text="${genre.getName()}">
+            </a>
+        </nav>
     </article>
 </header>
 <main>
     <div class="white-bg">
         <h2 class="list-title" id="cards-title">Книги по запросу</h2>
+        <article class="cards">
+            <article th:each="book : ${bookList}" class="card">
+                <section class="card__top">
+                    <div class="card__top__image">
+                        <img th:src="@{${book.imageSource}}">
+                    </div>
+                </section>
+                <div class="card__bottom">
+                    <div class="book-info">
+                        <section class="book-info__genre" th:text="${book.genre()}"></section>
+                        <section class="book-info__author-mark" th:text="${book.mark()}"></section>
+                    </div>
+                    <a th:href="@{/book_description(id=${book.id()})}"
+                       class="card__bottom__book-name"
+                       th:text="${book.name()}">
+                    </a>
+                </div>
+            </article>
+        </article>
     </div>
 </main>
 <footer>
     <aside class="white-bg">
         <h4 class="footer-title" id="footer-head">Как связаться с автором:</h4>
+        <ul class="markers">
+            <li th:each="contact : ${contactList}"
+                th:id="${contact.getCssClass()}"
+                th:text="${contact.getName()}">
+            </li>
+        </ul>
     </aside>
 </footer>
 <script>
-    get_genres();
-    get_contacts();
-    get_cards_html_by_params();
     active_menu();
 </script>
 </body>
