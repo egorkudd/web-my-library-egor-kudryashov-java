@@ -11,25 +11,7 @@
     <script src="../js/script.js"></script>
 </head>
 <body>
-<header>
-    <a class="home-button" href="/">Home</a>
-    <a class="user" href="#">Егор</a>
-    <div class="search-line">
-        <form action="/book_list" method="get">
-            <input name="wordLine" placeholder="🔎 Искать книгу..." type="search">
-        </form>
-    </div>
-    <article class="dropdown">
-        <button id="genres-button">Жанры</button>
-        <nav class="dropdown__options">
-            <a th:each="genre : ${genreList}"
-               th:id="${genre.getId()}"
-               th:href="@{/book_list(genre=${genre.getId()})}"
-               th:text="${genre.getName()}">
-            </a>
-        </nav>
-    </article>
-</header>
+<div th:replace="header :: content"></div>
 <main>
     <div class="white-bg">
         <div class="description-card" id="description-card">
@@ -52,17 +34,7 @@
         </div>
     </div>
 </main>
-<footer>
-    <aside class="white-bg">
-        <h4 class="footer-title" id="footer-head">Как связаться с автором:</h4>
-        <ul class="markers">
-            <li th:each="contact : ${contactList}"
-                th:id="${contact.getCssClass()}"
-                th:text="${contact.getName()}">
-            </li>
-        </ul>
-    </aside>
-</footer>
+<div th:replace="footer :: content"></div>
 <script>
     active_menu();
 </script>

@@ -28,7 +28,7 @@ public class PageController {
         model.addAttribute("genreList", genreRepository.findAll());
         model.addAttribute("contactList", contactRepository.findAll());
         model.addAttribute(
-                "bookCardList",
+                "bookList",
                 bookRepository.findAll().stream().map(bookMapper::toBookCardDto).toList()
         );
         return "index";

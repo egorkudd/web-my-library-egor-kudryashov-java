@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="My Library">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Egor Kudryashov">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Library</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js"></script>
+</head>
+<body>
+<article th:fragment="content" class="cards">
+    <article th:each="book : ${bookList}" class="card">
+        <section class="card__top">
+            <div class="card__top__image">
+                <img th:src="@{${book.imageSource}}">
+            </div>
+        </section>
+        <div class="card__bottom">
+            <div class="book-info">
+                <section class="book-info__genre" th:text="${book.genre()}"></section>
+                <section class="book-info__author-mark" th:text="${book.mark()}"></section>
+            </div>
+            <a th:href="@{/book_description(id=${book.id()})}"
+               class="card__bottom__book-name"
+               th:text="${book.name()}">
+            </a>
+        </div>
+    </article>
+</article>
+</body>
+</html>

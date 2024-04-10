@@ -11,61 +11,15 @@
     <script src="../js/script.js"></script>
 </head>
 <body>
-<header>
-    <a class="home-button" href="/">Home</a>
-    <a class="user" href="#">Егор</a>
-    <div class="search-line">
-        <form action="/book_list" method="get">
-            <input name="wordLine" placeholder="🔎 Искать книгу..." type="search">
-        </form>
-    </div>
-    <article class="dropdown">
-        <button id="genres-button">Жанры</button>
-        <nav class="dropdown__options">
-            <a th:each="genre : ${genreList}"
-               th:id="${genre.getId()}"
-               th:href="@{/book_list(genre=${genre.getId()})}"
-               th:text="${genre.getName()}">
-            </a>
-        </nav>
-    </article>
-</header>
+<div th:replace="header :: content"></div>
 <main>
     <h1 class="welcome-phrase">Добро пожаловать в мою библиотеку</h1>
     <div class="white-bg">
         <h2 class="list-title" id="cards-title">Любимые книги автора</h2>
-        <article class="cards">
-            <article th:each="bookCard : ${bookCardList}" class="card">
-                <section class="card__top">
-                    <div class="card__top__image">
-                        <img th:src="@{${bookCard.imageSource()}}">
-                    </div>
-                </section>
-                <div class="card__bottom">
-                    <div class="book-info">
-                        <section class="book-info__genre" th:text="${bookCard.genre()}"></section>
-                        <section class="book-info__author-mark" th:text="${bookCard.mark()}"></section>
-                    </div>
-                    <a th:href="@{/book_description(id=${bookCard.id()})}"
-                       class="card__bottom__book-name"
-                       th:text="${bookCard.name()}">
-                    </a>
-                </div>
-            </article>
-        </article>
+        <div th:replace="book_card_list :: content"></div>
     </div>
 </main>
-<footer>
-    <aside class="white-bg">
-        <h4 class="footer-title" id="footer-head">Как связаться с автором:</h4>
-        <ul class="markers">
-            <li th:each="contact : ${contactList}"
-                th:id="${contact.getCssClass()}"
-                th:text="${contact.getName()}">
-            </li>
-        </ul>
-    </aside>
-</footer>
+<div th:replace="footer :: content"></div>
 <script>
     active_menu();
 </script>

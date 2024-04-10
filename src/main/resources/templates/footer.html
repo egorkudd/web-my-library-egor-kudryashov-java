@@ -6,21 +6,21 @@
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="author" content="Egor Kudryashov">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Book's List</title>
+    <title>My Library</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/script.js"></script>
 </head>
 <body>
-<div th:replace="header :: content"></div>
-<main>
-    <div class="white-bg">
-        <h2 class="list-title" id="cards-title">Книги по запросу</h2>
-        <div th:replace="book_card_list :: content"></div>
-    </div>
-</main>
-<div th:replace="footer :: content"></div>
-<script>
-    active_menu();
-</script>
+<footer th:fragment="content">
+    <aside class="white-bg">
+        <h4 class="footer-title" id="footer-head">Как связаться с автором:</h4>
+        <ul class="markers">
+            <li th:each="contact : ${contactList}"
+                th:id="${contact.getCssClass()}"
+                th:text="${contact.getName()}">
+            </li>
+        </ul>
+    </aside>
+</footer>
 </body>
 </html>
