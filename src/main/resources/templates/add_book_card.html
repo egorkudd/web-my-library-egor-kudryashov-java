@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="My Library">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Egor Kudryashov">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Library</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js"></script>
+</head>
+<body>
+<h1 class="title">Add Book Card</h1>
+<form id="bookForm" class="custom-form" th:action="@{/add_book_card}" th:object="${bookCardDto}" method="post">
+    <label for="imageSource">Image Source:</label>
+    <input type="text" id="imageSource" name="imageSource" class="custom-input" th:field="*{imageSource}" required>
+    <label for="genre">Genre:</label>
+    <input type="text" id="genre" name="genre" class="custom-input" th:field="*{genre}" required>
+    <label for="mark">Mark:</label>
+    <input type="number" id="mark" name="mark" class="custom-input" th:field="*{mark}" min="0" max="5" step="0.1" required>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" class="custom-input" th:field="*{name}" required>
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="author" class="custom-input" th:field="*{author}" required>
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" class="custom-input" th:field="*{description}" required></textarea>
+    <button type="submit" class="custom-button">Add Book Card</button>
+</form>
+</body>
+</html>

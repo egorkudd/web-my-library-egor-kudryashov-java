@@ -1,19 +1,15 @@
-<!DOCTYPE html>
-<html lang="ru" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8">
-    <meta name="description" content="My Library">
-    <meta name="keywords" content="HTML, CSS, JavaScript">
-    <meta name="author" content="Egor Kudryashov">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My Library</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/script.js"></script>
-</head>
-<body>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <header th:fragment="content">
     <a class="home-button" href="/">Home</a>
-    <a class="user" href="#">Егор</a>
+    <div th:if="${isAnonymous}">
+        <a class="user" href="/login">Login</a>
+    </div>
+    <div th:if="${!isAnonymous}">
+        <a class="user" href="/logout" th:text="'Logout: ' + ${userName}"></a>
+    </div>
+    <div th:if="${isAdmin}">
+        <a class="admin-add-book" href="/add_book_card">Create Book</a>
+    </div>
     <div class="search-line">
         <form action="/book_list" method="get">
             <input name="wordLine" placeholder="🔎 Искать книгу..." type="search">
@@ -30,5 +26,4 @@
         </nav>
     </article>
 </header>
-</body>
 </html>

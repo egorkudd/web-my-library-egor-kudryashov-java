@@ -1,7 +1,7 @@
 package org.example.dto;
 
 public record BookCardDto(
-    int id,
+    Integer id,
     String imageSource,
     String genre,
     double mark,

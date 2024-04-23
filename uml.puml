@@ -1,0 +1,42 @@
+@startuml
+package "public" {
+    class Author {
+        id: integer
+        name: character varying(255)
+    }
+    class Genre {
+        id: integer
+        name: character varying(255)
+    }
+    class Book {
+        id: integer
+        imageSource: character varying(255)
+        genreId: integer
+        mark: numeric
+        name: character varying(255)
+        authorId: integer
+        description: text
+    }
+    class BookCost {
+        bookId: integer
+        bookvoedId: integer
+        labirintId: integer
+        chitaiGorodId: character varying(255)
+    }
+    class BookToSameBook {
+        bookId: integer
+        sameBookId: integer
+    }
+    class Contact {
+        id: integer
+        cssClass: character varying(255)
+        name: character varying(255)
+    }
+
+    Author -- Book: 1..*
+    Genre -- Book: 1..*
+    Book -- BookCost: 1..1
+    Book -- BookToSameBook: *..*
+}
+
+@enduml

@@ -11,15 +11,13 @@
     <script src="../js/script.js"></script>
 </head>
 <body>
-<div th:replace="header :: content"></div>
-<main>
-    <h1 class="welcome-phrase">Добро пожаловать в мою библиотеку</h1>
-    <div class="white-bg">
-        <h2 class="list-title" id="cards-title">Любимые книги автора</h2>
-        <div th:replace="book_card_list :: content"></div>
-    </div>
-</main>
-<div th:replace="footer :: content"></div>
-<script>active_menu();</script>
+<div class="login-container">
+    <h2>Авторизация</h2>
+    <form action="#" method="post">
+        <input type="text" name="username" placeholder="Имя пользователя" required>
+        <input type="password" name="password" placeholder="Пароль" required>
+        <input type="submit" value="Войти">
+    </form>
+</div>
 </body>
 </html>
