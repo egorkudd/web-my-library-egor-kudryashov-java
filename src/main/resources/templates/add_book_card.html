@@ -16,13 +16,25 @@
     <label for="imageSource">Image Source:</label>
     <input type="text" id="imageSource" name="imageSource" class="custom-input" th:field="*{imageSource}" required>
     <label for="genre">Genre:</label>
-    <input type="text" id="genre" name="genre" class="custom-input" th:field="*{genre}" required>
+    <select id="genre" name="genre" class="custom-input" th:field="*{genre}" required>
+        <option th:each="genre : ${genreList}"
+                th:id="${genre.getId()}"
+                th:value="${genre.getName()}"
+                th:text="${genre.getName()}">
+        </option>
+    </select>
     <label for="mark">Mark:</label>
     <input type="number" id="mark" name="mark" class="custom-input" th:field="*{mark}" min="0" max="5" step="0.1" required>
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" class="custom-input" th:field="*{name}" required>
     <label for="author">Author:</label>
-    <input type="text" id="author" name="author" class="custom-input" th:field="*{author}" required>
+    <select id="author" name="author" class="custom-input" th:field="*{author}" required>
+        <option th:each="author : ${authorList}"
+                th:id="${author.getId()}"
+                th:value="${author.getName()}"
+                th:text="${author.getName()}">
+        </option>
+    </select>
     <label for="description">Description:</label>
     <textarea id="description" name="description" class="custom-input" th:field="*{description}" required></textarea>
     <button type="submit" class="custom-button">Add Book Card</button>

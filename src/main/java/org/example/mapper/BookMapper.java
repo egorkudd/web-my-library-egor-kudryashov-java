@@ -55,12 +55,12 @@ public class BookMapper {
         Book book = new Book();
         book.setImageSource(bookCardDto.imageSource());
         book.setGenre(genreRepository.findByName(bookCardDto.genre())
-                .orElseThrow(() -> new IllegalArgumentException("incorrect genre name"))
+                .orElseThrow(() -> new IllegalArgumentException("incorrect genre name : " + bookCardDto.genre()))
         );
         book.setMark(bookCardDto.mark());
         book.setName(bookCardDto.name());
         book.setAuthor(authorRepository.findByName(bookCardDto.author())
-                .orElseThrow(() -> new IllegalArgumentException("incorrect author name"))
+                .orElseThrow(() -> new IllegalArgumentException("incorrect author name : " + bookCardDto.author()))
         );
         book.setDescription(bookCardDto.description());
         book.setSameBookList(new ArrayList<>());

@@ -126,7 +126,7 @@ button:hover {
 /*==================== main ===========================*/
 
 body {
-    background-image: url("../img/bg9.jpg");
+    background-image: url("https://raw.githubusercontent.com/egorkudd/my_library_static/main/bg9.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -382,19 +382,19 @@ body {
 }
 
 #tg {
-    list-style-image: url(../img/tg.png);
+    list-style-image: url(https://github.com/egorkudd/my_library_static/blob/main/tg.png?raw=true);
 }
 
 #in {
-    list-style-image: url(../img/in.png);
+    list-style-image: url(https://github.com/egorkudd/my_library_static/blob/main/in.png?raw=true);
 }
 
 #vk {
-    list-style-image: url(../img/vk.png);
+    list-style-image: url(https://github.com/egorkudd/my_library_static/blob/main/vk.png?raw=true);
 }
 
 #gm {
-    list-style-image: url(../img/gm.png);
+    list-style-image: url(https://github.com/egorkudd/my_library_static/blob/main/gm.png?raw=true);
 }
 
 .time-place {

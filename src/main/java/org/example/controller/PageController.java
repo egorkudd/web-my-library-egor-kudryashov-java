@@ -5,6 +5,7 @@ import org.example.dto.BookCardDto;
 import org.example.entity.Book;
 import org.example.entity.Role;
 import org.example.entity.User;
+import org.example.service.AuthorService;
 import org.example.service.BookService;
 import org.example.service.ContactService;
 import org.example.service.GenreService;
@@ -24,6 +25,7 @@ public class PageController {
     private final GenreService genreService;
     private final ContactService contactService;
     private final BookService bookService;
+    private final AuthorService authorService;
 
     @GetMapping("/")
     public String homePage(Model model) {
@@ -61,13 +63,14 @@ public class PageController {
     @GetMapping("/add_book_card")
     public String showAddBookCardPage(Model model) {
         collectModel(model);
+        model.addAttribute("authorList", authorService.getAllAuthors());
         BookCardDto bookCardDto = new BookCardDto(0, "", "", 0.0, "", "", "");
         model.addAttribute("bookCardDto", bookCardDto);
         return "add_book_card";
     }
 
     @PostMapping("/add_book_card")
-    public String addBookCard(@ModelAttribute BookCardDto bookCardDto) {
+    public String addBookCard(@ModelAttribute BookCardDto bookCardDto, Model model) {
         Book book = bookService.createBook(bookCardDto);
         return "redirect:/";
     }
